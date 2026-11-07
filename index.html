@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#170d1c" />
+  <meta name="description" content="A little something I wanted to tell you." />
+  <title>A Little Something for You 💌</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Interactive Background Canvas (Petals, Bokeh, Cursor Sparkles, Confetti) -->
+  <canvas id="fxCanvas" class="fx-canvas" aria-hidden="true"></canvas>
+
+  <!-- Ambient lighting & decorative grain -->
+  <div class="grain" aria-hidden="true"></div>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="ambient ambient-three" aria-hidden="true"></div>
+  <div class="stars" id="stars" aria-hidden="true"></div>
+
+  <!-- Toast notification for copied message -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Top Navigation Bar -->
+  <header class="topbar">
+    <a class="brand" href="#" id="brandLogo" aria-label="A Little Something for You home">
+      <span class="brand-heart">♡</span>
+      <span>a little something</span>
+    </a>
+
+    <!-- Step Progress Indicator -->
+    <nav class="nav-steps" id="navSteps" aria-label="Story chapters">
+      <button class="step-dot active" data-step="welcome" title="The Letter">
+        <span class="dot-num">01</span>
+        <span class="dot-label">Letter</span>
+      </button>
+      <span class="step-line" aria-hidden="true"></span>
+      <button class="step-dot" data-step="story" title="A Little Backstory">
+        <span class="dot-num">02</span>
+        <span class="dot-label">Story</span>
+      </button>
+      <span class="step-line" aria-hidden="true"></span>
+      <button class="step-dot" data-step="confession" title="From the Heart">
+        <span class="dot-num">03</span>
+        <span class="dot-label">Truth</span>
+      </button>
+      <span class="step-line" aria-hidden="true"></span>
+      <button class="step-dot" data-step="question" title="Your Turn">
+        <span class="dot-num">04</span>
+        <span class="dot-label">Question</span>
+      </button>
+    </nav>
+
+    <!-- Music Controls with Equalizer & Track Switcher -->
+    <div class="music-controls-wrap">
+      <button class="music-toggle" id="musicToggle" type="button" aria-pressed="false" aria-label="Toggle background music">
+        <span class="music-icon-wrap" aria-hidden="true">
+          <span class="music-icon">♫</span>
+          <span class="eq-bars">
+            <span class="eq-bar"></span>
+            <span class="eq-bar"></span>
+            <span class="eq-bar"></span>
+            <span class="eq-bar"></span>
+          </span>
+        </span>
+        <span id="musicLabel">Turn music on</span>
+      </button>
+      <button class="music-track-btn" id="nextTrackBtn" type="button" title="Switch song track" aria-label="Switch song track">
+        <span class="track-icon" aria-hidden="true">⏭</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- SCREEN 1: WELCOME / ENVELOPE HERO -->
+    <section class="screen hero active" id="welcome" aria-labelledby="hero-title">
+      <div class="eyebrow stagger-1"><span></span> A LITTLE NOTE FOR YOU <span></span></div>
+      
+      <!-- Interactive 3D Envelope -->
+      <div class="envelope-wrap" id="envelopeWrap" role="button" tabindex="0" aria-label="Click to open the letter note">
+        <div class="envelope-glow" aria-hidden="true"></div>
+        <div class="envelope" id="envelope" aria-hidden="true">
+          <div class="envelope-back"></div>
+          
+          <div class="letter" id="letter">
+            <div class="letter-texture"></div>
+            <div class="letter-content">
+              <span class="letter-sub">Especially for you</span>
+              <span class="letter-heart">♡</span>
+              <span class="letter-hint">Tap to open</span>
+            </div>
+          </div>
+
+          <div class="envelope-pocket"></div>
+          <div class="envelope-front"></div>
+          <div class="envelope-flap" id="envelopeFlap"></div>
+          
+          <div class="wax-seal" id="waxSeal">
+            <div class="seal-ring"></div>
+            <span class="seal-heart">♡</span>
+          </div>
+        </div>
+        <div class="envelope-hint"><span>✉ Tap envelope or button below</span></div>
+      </div>
+
+      <h1 id="hero-title" class="stagger-2">Some things are<br><em>better said</em> from the heart.</h1>
+      <p class="hero-copy stagger-3">I made a little something. No pressure, no expectations — just a few honest words.</p>
+      
+      <div class="hero-cta stagger-4">
+        <button class="primary-button pulse-button" id="openNote" type="button">
+          Open your little note <span class="arrow-icon">↗</span>
+        </button>
+      </div>
+      
+      <p class="tiny-note stagger-4">Take your time. Just between us — keep it private until it's permanent.</p>
+    </section>
+
+    <!-- SCREEN 2: STORY -->
+    <section class="screen story" id="story" aria-labelledby="story-title">
+      <div class="section-number">01 <span>— A LITTLE BACKSTORY</span></div>
+      
+      <!-- Rotating Orbits & Pulsing Heart -->
+      <div class="story-art" aria-hidden="true">
+        <div class="orbit orbit-a">
+          <span class="orbit-satellite sat-1">✦</span>
+        </div>
+        <div class="orbit orbit-b">
+          <span class="orbit-satellite sat-2">✧</span>
+        </div>
+        <div class="heart-pulse-wrap">
+          <div class="heart-ripple ripple-1"></div>
+          <div class="heart-ripple ripple-2"></div>
+          <div class="story-heart">♡</div>
+        </div>
+        <span class="spark spark-a">✦</span>
+        <span class="spark spark-b">✧</span>
+        <span class="spark spark-c">✦</span>
+        <span class="spark spark-d">✧</span>
+      </div>
+
+      <h2 id="story-title">It started with<br><em>a first glance.</em></h2>
+      
+      <div class="story-copy">
+        <div class="story-card stagger-1">
+          <span class="story-card-glyph">“</span>
+          <p>The first time I saw you at college, something about you caught my attention.</p>
+        </div>
+        <div class="story-card stagger-2">
+          <p>At first, I didn't think much of it. Even when my friends teased me about you, I just laughed it off.</p>
+        </div>
+        <div class="story-card stagger-3">
+          <p>But somewhere along the way, I realised those little moments had started to mean a little more.</p>
+        </div>
+      </div>
+
+      <div class="screen-actions">
+        <button class="primary-button" id="toConfession" type="button">
+          There's something else <span class="arrow-icon">→</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- SCREEN 3: CONFESSION -->
+    <section class="screen confession" id="confession" aria-labelledby="confession-title">
+      <div class="section-number">02 <span>— FROM THE HEART</span></div>
+      
+      <!-- Interactive 3D Tilt Card with Shimmer Border -->
+      <div class="confession-card" id="confessionCard">
+        <div class="card-glow" aria-hidden="true"></div>
+        <div class="card-border-glow" aria-hidden="true"></div>
+        
+        <div class="card-topline">
+          <span>JUST BETWEEN US</span>
+          <span class="card-topline-heart">♡</span>
+        </div>
+        
+        <h2 id="confession-title">So, here's<br><em>the truth.</em></h2>
+        <p class="confession-lead">I think you're wonderful, and I've found myself wanting to know you better.</p>
+        
+        <div class="handwritten-box">
+          <div class="handwritten-glow" aria-hidden="true"></div>
+          <div class="handwritten">I like you. <span class="beating-heart">♡</span></div>
+          <span class="handwritten-tag">straight from the heart</span>
+        </div>
+
+        <div class="private-badge" aria-label="Privacy promise">
+          <span class="private-lock">🔒</span>
+          <span class="private-text">Keep it private until it's permanent</span>
+          <span class="private-spark">✧</span>
+        </div>
+        
+        <p class="confession-bottom">I don't know what you think about me, and that's okay. I just wanted to be honest instead of keeping this to myself.</p>
+        
+        <div class="card-stamp" aria-hidden="true">
+          <span>HONEST & TRUE</span>
+        </div>
+      </div>
+      
+      <div class="screen-actions">
+        <button class="primary-button pulse-button" id="toQuestion" type="button">
+          One little question… <span class="arrow-icon">↗</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- SCREEN 4: QUESTION -->
+    <section class="screen question" id="question" aria-labelledby="question-title">
+      <div class="section-number">03 <span>— YOUR TURN</span></div>
+      
+      <div class="question-ornament-wrap" aria-hidden="true">
+        <div class="ornament-aura"></div>
+        <div class="question-ornament">♡</div>
+      </div>
+
+      <p class="eyebrow question-eyebrow">NO PRESSURE. JUST HONESTY.</p>
+      <h2 id="question-title">Would you like<br>to <em>get to know me?</em></h2>
+      <p class="question-copy">I'd love the chance to spend some time talking and see where things go — only if you'd like that too.</p>
+      
+      <div class="answer-buttons">
+        <button class="primary-button answer-yes glowing-btn" id="yesButton" type="button">
+          <span class="btn-shine" aria-hidden="true"></span>
+          <span class="btn-text">Yes, let's see ♡</span>
+        </button>
+        <button class="secondary-button" id="timeButton" type="button">
+          <span>I'd like some time</span>
+        </button>
+        <button class="quiet-button" id="noButton" type="button">
+          <span>I don't feel the same</span>
+        </button>
+      </div>
+      
+      <div class="privacy-note">
+        <span class="privacy-lock">🔒</span>
+        <span>Let's keep it private until it's permanent.</span>
+      </div>
+      <p class="tiny-note">Whatever your answer, I'll respect it.</p>
+    </section>
+
+    <!-- SCREEN 5: RESPONSE -->
+    <section class="screen response" id="response" aria-live="polite">
+      <div class="response-celebration-canvas" id="responseFx" aria-hidden="true"></div>
+      
+      <div class="response-symbol-wrap">
+        <div class="response-aura" id="responseAura" aria-hidden="true"></div>
+        <div class="response-symbol" id="responseSymbol">♡</div>
+      </div>
+      
+      <p class="eyebrow" id="responseEyebrow">THANK YOU FOR BEING HONEST</p>
+      <h2 id="responseTitle">That means<br><em>a lot.</em></h2>
+      <p class="response-copy" id="responseCopy">I'd be happy to take things one step at a time.</p>
+      
+      <div class="response-actions">
+        <a class="primary-button whatsapp-button" id="whatsappBtn" href="#" target="_blank" rel="noopener noreferrer">
+          Send via WhatsApp <span class="whatsapp-icon">💬</span>
+        </a>
+        <button class="secondary-button" id="copyResponseBtn" type="button">
+          Copy your answer <span>📋</span>
+        </button>
+        <button class="text-button" id="restartButton" type="button">
+          Read the note again ↺
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Ambient Footer with Personalization -->
+  <footer class="footer">
+    <div class="footer-left">
+      <span>MADE WITH A LITTLE COURAGE</span>
+      <span class="footer-dot">•</span>
+      <button class="footer-link" id="personalizeBtn" type="button">Personalize link ✦</button>
+    </div>
+    <span class="footer-heart">♡</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
