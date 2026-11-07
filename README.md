@@ -18,7 +18,8 @@
 - 🔒 **"Keep It Private Until It's Permanent"**:
   - An animated, glowing privacy badge on the confession card.
   - Empathetic privacy reassurances integrated into the hero note, the question screen, and the shareable response.
-- 💖 **Cosmic Story Visuals**:
+- 💖 **Cosmic Story & Love Letter Visuals**:
+  - Unfolded love letter stationery paper backdrop complete with ruled letter lines, authentic postage stamp, postmark cancellation, and fold creases.
   - Concentric expanding ripple rings radiating from the central heart.
   - Dual 3D planetary orbits rotating in opposite directions with sparkling satellite stars.
   - Realistic anatomical double-beat heartbeat animation.
@@ -33,8 +34,7 @@
   - Includes a Web Audio API ambient synthesizer fallback to guarantee music always plays even if browser autoplay policies block media files.
 - 🎉 **Full-Screen Confetti Celebration**:
   - Clicking *"Yes, let's see ♡"* unleashes a celebratory shower of 160+ hearts, gold ribbons, and stardust across the entire screen with a celebration chime.
-  - One-tap **Send via WhatsApp** button with pre-filled romantic reply.
-  - **Copy Answer** button with an animated toast notification.
+  - **Share / Copy Answer** button with pre-filled message and an animated toast notification.
 - 🏷️ **Custom URL Personalization**:
   - Append `?to=HerName` or `?name=HerName` to the website URL (e.g., `https://rautvedant81-dev.github.io/little-something-for-you/?to=Ananya`).
   - Automatically updates the note header, letterhead, and question with her name!

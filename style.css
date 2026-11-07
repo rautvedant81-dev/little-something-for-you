@@ -864,8 +864,176 @@ h1 em, h2 em {
 }
 
 /* -------------------------------------------------------------
-   SCREEN 2: STORY (ORBITS & HEARTBEAT)
+   SCREEN 2: STORY (STATIONERY LETTER BACKGROUND & ART)
    ------------------------------------------------------------- */
+.screen.story {
+  position: relative;
+  padding: 42px clamp(22px, 5vw, 48px) 38px;
+}
+
+/* Authentic Stationery Letter Paper in Background */
+.story-letter-paper {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: linear-gradient(165deg, rgba(255, 245, 247, 0.08) 0%, rgba(38, 17, 43, 0.72) 42%, rgba(22, 10, 27, 0.85) 100%);
+  border: 1px solid rgba(247, 168, 190, 0.28);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.15), inset 0 0 35px rgba(247, 168, 190, 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  transition: transform 0.4s var(--ease-spring);
+}
+
+/* Faint ruled letter lines */
+.letter-paper-texture {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 31px,
+    rgba(247, 168, 190, 0.045) 32px
+  );
+  opacity: 0.85;
+}
+
+/* Postage stamp & cancellation postmark */
+.letter-stamp-wrap {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.75;
+}
+
+.letter-postmark {
+  border: 1px dashed rgba(247, 168, 190, 0.5);
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-12deg);
+  color: var(--pink);
+  font-size: 7px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.letter-postmark b {
+  font-size: 11px;
+  line-height: 1;
+  color: var(--rose);
+}
+
+.letter-postmark small {
+  font-size: 6px;
+  color: var(--muted);
+}
+
+.letter-postage-stamp {
+  width: 38px;
+  height: 44px;
+  border: 1px dashed rgba(247, 213, 163, 0.6);
+  background: rgba(247, 168, 190, 0.08);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transform: rotate(4deg);
+}
+
+.stamp-heart {
+  color: var(--gold);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.stamp-post {
+  font-size: 7px;
+  letter-spacing: 0.14em;
+  color: var(--pink-light);
+  margin-top: 2px;
+  font-weight: 600;
+}
+
+/* Subtle letter fold creases */
+.letter-crease {
+  position: absolute;
+  pointer-events: none;
+}
+
+.crease-h {
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 5%, rgba(255, 255, 255, 0.06) 50%, transparent 95%);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.crease-v {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent 5%, rgba(255, 255, 255, 0.05) 50%, transparent 95%);
+  box-shadow: 1px 0 2px rgba(0, 0, 0, 0.15);
+}
+
+/* Letterhead tag & watermark */
+.letter-header-tag {
+  position: absolute;
+  top: 18px;
+  left: 24px;
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(247, 168, 190, 0.45);
+}
+
+.letter-watermark {
+  position: absolute;
+  bottom: 18px;
+  left: 24px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  color: rgba(247, 168, 190, 0.15);
+  text-transform: uppercase;
+}
+
+.letter-wax-accent {
+  position: absolute;
+  bottom: 16px;
+  right: 22px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #a83d5f, #6e1a32);
+  display: grid;
+  place-items: center;
+  color: #ffe6ec;
+  font-size: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  opacity: 0.7;
+}
+
+/* Ensure story elements sit cleanly in front of the letter paper */
+.story > *:not(.story-letter-paper) {
+  position: relative;
+  z-index: 1;
+}
+
 .section-number {
   align-self: flex-start;
   margin: 0 0 12px 5%;
@@ -1535,6 +1703,27 @@ h1 em, h2 em {
   
   .confession-card {
     padding: 24px 20px;
+  }
+
+  .screen.story {
+    padding: 30px 16px 26px;
+  }
+
+  .letter-stamp-wrap {
+    top: 10px;
+    right: 10px;
+    transform: scale(0.8);
+    transform-origin: top right;
+  }
+
+  .letter-header-tag {
+    top: 12px;
+    left: 14px;
+    font-size: 7px;
+  }
+
+  .letter-watermark {
+    display: none;
   }
   
   .handwritten {
