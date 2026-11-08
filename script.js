@@ -4,15 +4,19 @@
  */
 
 // -------------------------------------------------------------
-// 1. STATE & SCREEN NAVIGATION
+// 1. STATE & SCREEN NAVIGATION (8-STEP JOURNEY)
 // -------------------------------------------------------------
-const screens = ["welcome", "story", "confession", "question", "response"];
+const screens = ["welcome", "first-time", "feelings", "confession", "proposal", "response"];
 const stepMap = {
   welcome: "welcome",
-  story: "story",
+  "first-time": "first-time",
+  feelings: "feelings",
   confession: "confession",
-  question: "question",
-  response: "question"
+  proposal: "proposal",
+  response: "proposal",
+  // Aliases for compatibility
+  story: "first-time",
+  question: "proposal"
 };
 
 let currentScreenId = "welcome";
@@ -21,7 +25,7 @@ let lastAnswerChosen = "yes";
 function updateStepNavigation(activeId) {
   const stepDots = document.querySelectorAll(".step-dot");
   const stepTarget = stepMap[activeId] || "welcome";
-  const stepOrder = ["welcome", "story", "confession", "question"];
+  const stepOrder = ["welcome", "first-time", "feelings", "confession", "proposal"];
   const activeIndex = stepOrder.indexOf(stepTarget);
 
   stepDots.forEach((dot, index) => {
@@ -35,6 +39,10 @@ function updateStepNavigation(activeId) {
 }
 
 function showScreen(id) {
+  // Alias routing
+  if (id === "story") id = "first-time";
+  if (id === "question") id = "proposal";
+
   currentScreenId = id;
 
   screens.forEach((screenId) => {
@@ -102,7 +110,7 @@ function triggerOpenEnvelope() {
 
   // Navigate after animation plays
   setTimeout(() => {
-    showScreen("story");
+    showScreen("first-time");
     setTimeout(() => {
       if (envelope) {
         envelope.classList.remove("opening");
@@ -134,7 +142,15 @@ if (openNoteBtn) {
   openNoteBtn.addEventListener("click", triggerOpenEnvelope);
 }
 
-// Navigation between story & confession
+// Navigation between chapters
+const toFeelingsBtn = document.getElementById("toFeelings");
+if (toFeelingsBtn) {
+  toFeelingsBtn.addEventListener("click", () => {
+    playSoftTap();
+    showScreen("feelings");
+  });
+}
+
 const toConfessionBtn = document.getElementById("toConfession");
 if (toConfessionBtn) {
   toConfessionBtn.addEventListener("click", () => {
@@ -143,11 +159,11 @@ if (toConfessionBtn) {
   });
 }
 
-const toQuestionBtn = document.getElementById("toQuestion");
-if (toQuestionBtn) {
-  toQuestionBtn.addEventListener("click", () => {
+const toProposalBtn = document.getElementById("toProposal") || document.getElementById("toQuestion");
+if (toProposalBtn) {
+  toProposalBtn.addEventListener("click", () => {
     playSoftTap();
-    showScreen("question");
+    showScreen("proposal");
   });
 }
 

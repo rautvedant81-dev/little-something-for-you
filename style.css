@@ -864,11 +864,59 @@ h1 em, h2 em {
 }
 
 /* -------------------------------------------------------------
-   SCREEN 2: STORY (STATIONERY LETTER BACKGROUND & ART)
+   SCREEN 2 & 3: FIRST-TIME & FEELINGS (STATIONERY LETTER BACKGROUND & ART)
    ------------------------------------------------------------- */
-.screen.story {
+.screen.story,
+.screen.first-time,
+.screen.feelings {
   position: relative;
   padding: 42px clamp(22px, 5vw, 48px) 38px;
+}
+
+/* Ensure letter elements sit cleanly in front of the letter paper */
+.story > *:not(.story-letter-paper),
+.first-time > *:not(.story-letter-paper),
+.feelings > *:not(.story-letter-paper) {
+  position: relative;
+  z-index: 1;
+}
+
+/* First-Time Memory Art */
+.first-time-art {
+  position: relative;
+  width: 180px;
+  height: 120px;
+  display: grid;
+  place-items: center;
+  margin: 10px 0 4px;
+}
+
+.memory-glow {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(247, 213, 163, 0.45) 0%, transparent 70%);
+  filter: blur(28px);
+  animation: auraBreathe 3s ease-in-out infinite alternate;
+}
+
+.memory-ring {
+  position: absolute;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  border: 1px dashed rgba(247, 168, 190, 0.4);
+  animation: orbitRotateA 12s linear infinite;
+}
+
+.memory-symbol {
+  font-family: var(--font-serif);
+  font-size: 44px;
+  color: var(--gold);
+  line-height: 1;
+  text-shadow: 0 0 25px rgba(247, 213, 163, 0.6);
+  animation: miniHeartbeat 2.6s infinite ease-in-out;
 }
 
 /* Authentic Stationery Letter Paper in Background */
@@ -1705,7 +1753,9 @@ h1 em, h2 em {
     padding: 24px 20px;
   }
 
-  .screen.story {
+  .screen.story,
+  .screen.first-time,
+  .screen.feelings {
     padding: 30px 16px 26px;
   }
 

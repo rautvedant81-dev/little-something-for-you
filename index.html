@@ -32,25 +32,30 @@
       <span>a little something</span>
     </a>
 
-    <!-- Step Progress Indicator -->
+    <!-- Step Progress Indicator (5 Chapters) -->
     <nav class="nav-steps" id="navSteps" aria-label="Story chapters">
       <button class="step-dot active" data-step="welcome" title="The Letter">
         <span class="dot-num">01</span>
         <span class="dot-label">Letter</span>
       </button>
       <span class="step-line" aria-hidden="true"></span>
-      <button class="step-dot" data-step="story" title="A Little Backstory">
+      <button class="step-dot" data-step="first-time" title="First Sight">
         <span class="dot-num">02</span>
-        <span class="dot-label">Story</span>
+        <span class="dot-label">First Sight</span>
+      </button>
+      <span class="step-line" aria-hidden="true"></span>
+      <button class="step-dot" data-step="feelings" title="Feelings">
+        <span class="dot-num">03</span>
+        <span class="dot-label">Feelings</span>
       </button>
       <span class="step-line" aria-hidden="true"></span>
       <button class="step-dot" data-step="confession" title="From the Heart">
-        <span class="dot-num">03</span>
+        <span class="dot-num">04</span>
         <span class="dot-label">Truth</span>
       </button>
       <span class="step-line" aria-hidden="true"></span>
-      <button class="step-dot" data-step="question" title="Your Turn">
-        <span class="dot-num">04</span>
+      <button class="step-dot" data-step="proposal" title="The Question">
+        <span class="dot-num">05</span>
         <span class="dot-label">Question</span>
       </button>
     </nav>
@@ -114,9 +119,8 @@
       <p class="tiny-note stagger-4">Take your time. Just between us — keep it private until it's permanent.</p>
     </section>
 
-    <!-- SCREEN 2: STORY -->
-    <section class="screen story" id="story" aria-labelledby="story-title">
-      <!-- Romantic Love Letter Stationery Background -->
+    <!-- SCREEN 2: FIRST-TIME (Step 2) -->
+    <section class="screen first-time" id="first-time" aria-labelledby="first-time-title">
       <div class="story-letter-paper" aria-hidden="true">
         <div class="letter-paper-texture"></div>
         <div class="letter-stamp-wrap">
@@ -127,21 +131,71 @@
           </div>
           <div class="letter-postage-stamp">
             <span class="stamp-heart">♡</span>
-            <span class="stamp-post">POST</span>
+            <span class="stamp-post">01</span>
           </div>
         </div>
         <div class="letter-crease crease-h"></div>
         <div class="letter-crease crease-v"></div>
-        <div class="letter-header-tag">PAGE 01 • FROM MY NOTEBOOK</div>
-        <div class="letter-watermark">A LITTLE NOTE</div>
-        <div class="letter-wax-accent">
-          <span>♡</span>
+        <div class="letter-header-tag">PAGE 01 • THE FIRST GLANCE</div>
+        <div class="letter-watermark">FIRST SIGHT</div>
+        <div class="letter-wax-accent"><span>♡</span></div>
+      </div>
+
+      <div class="section-number">01 <span>— THE FIRST GLANCE</span></div>
+      
+      <div class="first-time-art" aria-hidden="true">
+        <div class="memory-glow"></div>
+        <div class="memory-ring"></div>
+        <div class="memory-symbol">✦</div>
+        <span class="spark spark-a">✧</span>
+        <span class="spark spark-b">✦</span>
+        <span class="spark spark-c">✧</span>
+      </div>
+
+      <h2 id="first-time-title">It started with<br><em>a first glance.</em></h2>
+      
+      <div class="story-copy">
+        <div class="story-card stagger-1">
+          <span class="story-card-glyph">“</span>
+          <p>The first time I saw you at college, something about you caught my attention right away.</p>
+        </div>
+        <div class="story-card stagger-2">
+          <p>You were just walking past, but the day somehow felt a little brighter. I didn't say anything back then, but you quietly stayed on my mind.</p>
         </div>
       </div>
 
-      <div class="section-number">01 <span>— A LITTLE BACKSTORY</span></div>
+      <div class="screen-actions">
+        <button class="primary-button" id="toFeelings" type="button">
+          How things began to change <span class="arrow-icon">→</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- SCREEN 3: FEELINGS (Step 3) -->
+    <section class="screen feelings" id="feelings" aria-labelledby="feelings-title">
+      <div class="story-letter-paper" aria-hidden="true">
+        <div class="letter-paper-texture"></div>
+        <div class="letter-stamp-wrap">
+          <div class="letter-postmark">
+            <span>DEEPER</span>
+            <b>♡</b>
+            <small>AIR MAIL</small>
+          </div>
+          <div class="letter-postage-stamp">
+            <span class="stamp-heart">♡</span>
+            <span class="stamp-post">02</span>
+          </div>
+        </div>
+        <div class="letter-crease crease-h"></div>
+        <div class="letter-crease crease-v"></div>
+        <div class="letter-header-tag">PAGE 02 • HOW IT GREW</div>
+        <div class="letter-watermark">FEELINGS</div>
+        <div class="letter-wax-accent"><span>♡</span></div>
+      </div>
+
+      <div class="section-number">02 <span>— HOW FEELINGS GREW</span></div>
       
-      <!-- Rotating Orbits & Pulsing Heart -->
+      <!-- Rotating Planetary Orbits & Pulsing Heart -->
       <div class="story-art" aria-hidden="true">
         <div class="orbit orbit-a">
           <span class="orbit-satellite sat-1">✦</span>
@@ -160,31 +214,31 @@
         <span class="spark spark-d">✧</span>
       </div>
 
-      <h2 id="story-title">It started with<br><em>a first glance.</em></h2>
+      <h2 id="feelings-title">Those little moments<br><em>started to mean more.</em></h2>
       
       <div class="story-copy">
         <div class="story-card stagger-1">
           <span class="story-card-glyph">“</span>
-          <p>The first time I saw you at college, something about you caught my attention.</p>
-        </div>
-        <div class="story-card stagger-2">
           <p>At first, I didn't think much of it. Even when my friends teased me about you, I just laughed it off.</p>
         </div>
+        <div class="story-card stagger-2">
+          <p>But somewhere along the way, I caught myself looking for you in the crowd, hoping for a glimpse or a quick hello.</p>
+        </div>
         <div class="story-card stagger-3">
-          <p>But somewhere along the way, I realised those little moments had started to mean a little more.</p>
+          <p>That’s when I realized: you weren't just someone I noticed anymore. You had quietly become someone very special to me.</p>
         </div>
       </div>
 
       <div class="screen-actions">
         <button class="primary-button" id="toConfession" type="button">
-          There's something else <span class="arrow-icon">→</span>
+          There's something I need to tell you <span class="arrow-icon">→</span>
         </button>
       </div>
     </section>
 
-    <!-- SCREEN 3: CONFESSION -->
+    <!-- SCREEN 4: CONFESSION (Step 4) -->
     <section class="screen confession" id="confession" aria-labelledby="confession-title">
-      <div class="section-number">02 <span>— FROM THE HEART</span></div>
+      <div class="section-number">03 <span>— FROM THE HEART</span></div>
       
       <!-- Interactive 3D Tilt Card with Shimmer Border -->
       <div class="confession-card" id="confessionCard">
@@ -219,15 +273,15 @@
       </div>
       
       <div class="screen-actions">
-        <button class="primary-button pulse-button" id="toQuestion" type="button">
+        <button class="primary-button pulse-button" id="toProposal" type="button">
           One little question… <span class="arrow-icon">↗</span>
         </button>
       </div>
     </section>
 
-    <!-- SCREEN 4: QUESTION -->
-    <section class="screen question" id="question" aria-labelledby="question-title">
-      <div class="section-number">03 <span>— YOUR TURN</span></div>
+    <!-- SCREEN 5: PROPOSAL (Step 5) -->
+    <section class="screen proposal question" id="proposal" aria-labelledby="proposal-title">
+      <div class="section-number">04 <span>— YOUR TURN</span></div>
       
       <div class="question-ornament-wrap" aria-hidden="true">
         <div class="ornament-aura"></div>
@@ -235,7 +289,7 @@
       </div>
 
       <p class="eyebrow question-eyebrow">NO PRESSURE. JUST HONESTY.</p>
-      <h2 id="question-title">Would you like<br>to <em>get to know me?</em></h2>
+      <h2 id="proposal-title">Would you like<br>to <em>get to know me?</em></h2>
       <p class="question-copy">I'd love the chance to spend some time talking and see where things go — only if you'd like that too.</p>
       
       <div class="answer-buttons">
@@ -255,10 +309,10 @@
         <span class="privacy-lock">🔒</span>
         <span>Let's keep it private until it's permanent.</span>
       </div>
-      <p class="tiny-note">Whatever your answer, I'll respect it.</p>
+      <p class="tiny-note">Whatever your answer, I'll respect it with all my heart.</p>
     </section>
 
-    <!-- SCREEN 5: RESPONSE -->
+    <!-- SCREEN 6: RESPONSE (Step 6) -->
     <section class="screen response" id="response" aria-live="polite">
       <div class="response-celebration-canvas" id="responseFx" aria-hidden="true"></div>
       
@@ -267,9 +321,9 @@
         <div class="response-symbol" id="responseSymbol">♡</div>
       </div>
       
-      <p class="eyebrow" id="responseEyebrow">THANK YOU FOR BEING HONEST</p>
-      <h2 id="responseTitle">That means<br><em>a lot.</em></h2>
-      <p class="response-copy" id="responseCopy">I'd be happy to take things one step at a time.</p>
+      <p class="eyebrow" id="responseEyebrow">THAT MAKES ME SMILE</p>
+      <h2 id="responseTitle">Let's see<br><em>where it goes.</em></h2>
+      <p class="response-copy" id="responseCopy">Thank you for giving this a chance. I'd love to start by getting to know you, one conversation at a time — and we'll keep it private until it's permanent. ♡</p>
       
       <div class="response-actions">
         <button class="primary-button pulse-button" id="copyResponseBtn" type="button">

@@ -30,7 +30,7 @@
   - Romantic calligraphy script (*Great Vibes*) for *"I like you. ♡"* with glowing text and a pulsing ruby heart.
 - 🎵 **Atmospheric Music Player**:
   - Animated 4-bar soundwave equalizer jumping rhythmically when music is active.
-  - Loops `music2.mp3` with smooth volume control.
+  - Loops `music.mp3` with smooth volume control.
   - Includes a Web Audio API ambient synthesizer fallback to guarantee music always plays even if browser autoplay policies block media files.
 - 🎉 **Full-Screen Confetti Celebration**:
   - Clicking *"Yes, let's see ♡"* unleashes a celebratory shower of 160+ hearts, gold ribbons, and stardust across the entire screen with a celebration chime.
@@ -45,14 +45,29 @@
 
 ---
 
+## 📖 The 8-Step Story Journey
+
+| Step | Page / Section | Description |
+| :---: | :--- | :--- |
+| **1** | **Upgrade Welcome Page** | 3D interactive envelope with wax seal, letter peek, and gentle opening chime |
+| **2** | **Build First-Time Page** | *01 — The First Glance*: The unforgettable moment she was first seen at college |
+| **3** | **Build Feelings Page** | *02 — How Feelings Grew*: When little glances started to mean more; concentric heartbeats |
+| **4** | **Build Confession Page** | *03 — From the Heart*: 3D tilt card, cursive *"I like you"*, and *"Keep it private until it's permanent"* |
+| **5** | **Build Proposal Page** | *04 — The Question*: *"Would you like to get to know me?"* with 3 thoughtful answers |
+| **6** | **Add Response Pages** | Distinct emotional states for *Yes* (celebration), *Need Time*, and *Respectful No* |
+| **7** | **Animations & Polish** | 60fps canvas petals, glowing bokeh, cursor trails, and soundwave equalizer |
+| **8** | **Deploy on GitHub Pages** | Instant worldwide deployment with custom URL support |
+
+---
+
 ## 📂 Project Structure
 
 ```text
 little-something-for-you/
-├── index.html        # Clean semantic markup, 3D envelope, and screen sections
+├── index.html        # Clean semantic markup, 3D envelope, and 5 chapters
 ├── style.css         # Modern styling, glassmorphism, 3D transforms, keyframe animations
 ├── script.js         # Canvas particle engine, screen flow, audio synthesis, confetti
-├── music2.mp3        # Soft romantic background audio track
+├── music.mp3         # Background audio track
 ├── .gitignore        # Git ignore rules
 └── README.md         # Documentation & setup guide
 ```
