@@ -189,7 +189,7 @@ if (confessionCard) {
 const musicToggle = document.getElementById("musicToggle");
 const musicLabel = document.getElementById("musicLabel");
 
-const backgroundMusic = new Audio("music2.mp3");
+const backgroundMusic = new Audio("music.mp3");
 backgroundMusic.loop = true;
 backgroundMusic.volume = 0.35;
 
