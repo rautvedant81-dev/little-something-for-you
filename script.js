@@ -205,7 +205,7 @@ if (confessionCard) {
 const musicToggle = document.getElementById("musicToggle");
 const musicLabel = document.getElementById("musicLabel");
 
-const backgroundMusic = new Audio("music.mp3");
+const backgroundMusic = new Audio("music0.mp3");
 backgroundMusic.loop = true;
 backgroundMusic.volume = 0.35;
 
@@ -268,7 +268,7 @@ function stopAmbientSynth() {
   if (synthAudioContext && synthAudioContext.state !== "closed") {
     try {
       synthAudioContext.close();
-    } catch (e) {}
+    } catch (e) { }
     synthAudioContext = null;
   }
 }
@@ -338,7 +338,7 @@ function playNote(freq, startTime, duration, maxGain = 0.08) {
     gain.connect(ctx.destination);
     osc.start(startTime);
     osc.stop(startTime + duration + 0.05);
-  } catch (e) {}
+  } catch (e) { }
 }
 
 function playOpenChime() {
